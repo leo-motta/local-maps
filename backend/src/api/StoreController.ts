@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { getRepository } from "typeorm";
 import { Store } from '../entity/Store'
+import { AppDataSource } from '../../data.source'
 
 export async function save(request: Request, response: Response) {
-    const storeRepository = getRepository(Store);
+    const storeRepository = AppDataSource.getRepository(Store);
 
     const savedStore = await storeRepository.save(request.body);
 
@@ -11,9 +11,10 @@ export async function save(request: Request, response: Response) {
 }
 
 export async function getAll(request: Request, response: Response) {
-    const storeRepository = getRepository(Store);
+    const storeRepository = AppDataSource.getRepository(Store);
 
     const allStores = await storeRepository.find();
+    
 
     return response.json(allStores);
 }
