@@ -36,7 +36,6 @@ function New() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log('ENTROU')
 
     const request = await fetch('http://localhost:3000/store', {
       method: 'POST',
@@ -106,7 +105,7 @@ function New() {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <Marker position={[formValues.coords[0],formValues.coords[1]]}>
-            <Popup>pretty CSS3 popup. <br /> Easily customizable.</Popup>
+            <Popup>Nova Localização</Popup>
           </Marker>
           {/* Componente criado conforme a documentação do Leaflet v4.x: https://react-leaflet.js.org/docs/api-map/ */}
           <MapEventHandler setFormValues={setFormValues}></MapEventHandler>
